@@ -11,10 +11,10 @@ kays eigenes bootc-Image: `ghcr.io/ublue-os/silverblue-main:45` plus eigene Pake
 - `cosign.pub` im Repo, `cosign.key` nur lokal (gitignored) und als GitHub-Secret `SIGNING_SECRET`.
 
 ## Befehle
-Aktuell (lokal, GitHub noch nicht eingerichtet): Das System läuft von `ostree-unverified-image:oci:/var/mnt/storage/fedora-blue-oci`.
-- Update: `podman build -t localhost/fedora-blue:test . && rm -rf /var/mnt/storage/fedora-blue-oci && podman save --format oci-dir -o /var/mnt/storage/fedora-blue-oci localhost/fedora-blue:test && sudo rpm-ostree upgrade`
-- Später GitHub: `rpm-ostree rebase ostree-image-signed:docker://ghcr.io/kay-ki/fedora-blue:latest`
-- Zurück: Bootmenü oder `rpm-ostree rollback`; die beiden Bluefin-Deployments sind per `ostree admin pin` gesichert (`sudo ostree admin pin --unpin <index>` löst sie).
+Das System läuft von `ostree-image-signed:docker://ghcr.io/kay-ki/fedora-blue:latest` (öffentliches Repo, seit 18.11.). Updates holt `rpm-ostreed-automatic` (stage), aktiv nach Neustart.
+- Neu bauen: Push auf `main` oder `gh workflow run build.yml --repo kay-ki/fedora-blue`.
+- Lokal bauen (ohne GitHub): `podman build -t localhost/fedora-blue:test .`, dann `podman save --format oci-dir -o /var/mnt/storage/fedora-blue-oci localhost/fedora-blue:test` und `sudo rpm-ostree rebase ostree-unverified-image:oci:/var/mnt/storage/fedora-blue-oci`.
+- Zurück: Bootmenü oder `rpm-ostree rollback`. Die Bluefin-Deployments sind nicht mehr gepinnt und verschwinden beim nächsten Deployment.
 
 ## Fallen
 - zsh ist kays Login-Shell: muss im Image bleiben (`required` prüft das).
