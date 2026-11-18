@@ -1,6 +1,6 @@
 # Fedora Blue
 
-kays eigenes bootc-Image: `ghcr.io/ublue-os/silverblue-main:45` plus eigene Pakete. Gebaut per GitHub Actions (täglich 10:05 UTC und bei Push) nach `ghcr.io/kay-ki/fedora-blue:latest`, signiert mit cosign.
+kays eigenes bootc-Image: `ghcr.io/ublue-os/silverblue-main:45` plus eigene Pakete. Gebaut per GitHub Actions (montags 10:05 UTC und bei Push) nach `ghcr.io/kay-ki/fedora-blue:latest`, signiert mit cosign.
 
 ## Struktur
 - `build_files/packages.json`: einzige Stelle für Pakete (install/exclude/remove), Repos, Coprs, Dienste (system + user), /opt-Ordner, Kernelmodule und Pflichtdateien. Ein neues Paket = eine Zeile.
