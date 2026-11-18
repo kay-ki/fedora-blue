@@ -1,0 +1,10 @@
+[Unit]
+Description=Update Homebrew packages
+ConditionPathExists=/home/linuxbrew/.linuxbrew/bin/brew
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/home/linuxbrew/.linuxbrew/bin/brew update
+ExecStart=/home/linuxbrew/.linuxbrew/bin/brew upgrade

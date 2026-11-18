@@ -1,0 +1,3 @@
+docker:
+  ghcr.io/kay-ki/fedora-blue:
+    use-sigstore-attachments: true

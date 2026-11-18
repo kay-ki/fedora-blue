@@ -1,0 +1,99 @@
+{
+  "_hilfe": "Pakete fürs Image. repos = Dateien in build_files/repos/ (nur während des Builds aktiv), coprs = Copr-Projekte (nur während des Builds aktiv), install = Paketnamen, services = systemctl enable, opt = Ordner, die RPMs nach /opt schreiben und nach /usr/lib/opt verschoben werden müssen, required = Dateien, ohne die der Build abbricht. exclude = Pakete, die nie mitinstalliert werden (auch nicht als Abhängigkeit), remove = Pakete aus der Basis, die raus sollen. kmods = Kernelmodule aus build_files/kmods/<name>, werden gegen den Image-Kernel gebaut; scheitert der Build, entsteht kein neues Image. user_services = systemctl --global enable (Benutzer-Units aus system_files/usr/lib/systemd/user).",
+  "repos": [
+    "terra",
+    "google-chrome",
+    "mullvad",
+    "tailscale",
+    "vscode"
+  ],
+  "coprs": [
+    "che/nerd-fonts"
+  ],
+  "install": [
+    "zsh",
+    "jq",
+    "ghostty",
+    "code",
+    "google-chrome-stable",
+    "mullvad-vpn",
+    "tailscale",
+    "lact",
+    "faugus-launcher",
+    "gamescope",
+    "mangohud",
+    "goverlay",
+    "vkBasalt",
+    "piper",
+    "input-remapper",
+    "realtime-tests",
+    "rEFInd",
+    "ddcutil",
+    "i2c-tools",
+    "gcc",
+    "make",
+    "bc",
+    "elfutils-libelf-devel",
+    "nerdfontssymbolsonly-nerd-fonts",
+    "jetbrains-mono-fonts",
+    "gnome-shell-extension-appindicator",
+    "gnome-shell-extension-dash-to-dock",
+    "gnome-shell-extension-caffeine",
+    "gnome-shell-extension-user-theme",
+    "python3-pip",
+    "borgbackup",
+    "python3-llfuse",
+    "playerctl",
+    "evtest",
+    "python3-dotenv",
+    "python3-rich",
+    "python3-hidapi",
+    "python3-pyusb",
+    "python3-pyserial"
+  ],
+  "services": [
+    "lactd",
+    "mullvad-daemon",
+    "tailscaled",
+    "input-remapper"
+  ],
+  "opt": [
+    "google",
+    "Mullvad VPN"
+  ],
+  "required": [
+    "/usr/bin/zsh",
+    "/usr/bin/code",
+    "/usr/bin/ghostty",
+    "/usr/lib/opt/google/chrome/google-chrome"
+  ],
+  "exclude": [
+    "winetricks"
+  ],
+  "remove": [
+    "firefox",
+    "firefox-langpacks",
+    "gnome-tour",
+    "malcontent-control",
+    "gnome-classic-session",
+    "ibus-mozc",
+    "ibus-unikey",
+    "intel-vaapi-driver",
+    "open-vm-tools",
+    "virtualbox-guest-additions",
+    "qemu-guest-agent",
+    "intel-lpmd",
+    "libva-intel-media-driver",
+    "intel-mediasdk",
+    "intel-gmmlib",
+    "mcelog",
+    "sssd-common",
+    "sssd-nfs-idmap"
+  ],
+  "kmods": [
+    "88x2bu"
+  ],
+  "user_services": [
+    "brew-upgrade.timer"
+  ]
+}
